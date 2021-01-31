@@ -1,0 +1,43 @@
+<section class="register py-5">
+
+    <h3>Register Form</h3>
+
+    <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
+        <label >first name </label>
+        <input type="text" class="form-control mb-3" formControlName="first_name">
+        <ng-template [ngIf]=" (showErrors || registerForm.controls.first_name.touched) && registerForm.controls.first_name.errors">
+            <p class="text-danger" *ngIf="registerForm.controls.first_name.errors['required']">first name is required</p>
+        </ng-template>
+        
+
+
+
+
+
+
+         <label>last name </label>
+        <input type="text" class="form-control mb-3" formControlName="last_name">
+    <ng-template [ngIf]="(showErrors || registerForm.controls.last_name.touched )&& registerForm.controls.last_name.errors">
+        <p class="text-danger" *ngIf="registerForm.controls.last_name.errors['required']">last name is required</p>
+    </ng-template>
+        <label>Email </label>
+        <input type="email" class="form-control mb-3" formControlName="email">
+
+        <label>Password </label>
+        <input type="password" class="form-control mb-3" formControlName="password">
+            <ng-template [ngIf]="registerForm.controls.password.touched && registerForm.controls.password.errors">
+                <p class="text-danger" *ngIf="registerForm.controls.password.errors['required']">password is required</p>
+                <p class="text-danger" *ngIf="registerForm.controls.password.errors['pattern']">password should start with</p>
+
+                <p class="text-danger" *ngIf="registerForm.controls.password.errors['minlength']">password minLength should be {{registerForm.controls.password.errors['minlength'].requiredLength}} </p>
+                <p class="text-danger" *ngIf="registerForm.controls.password.errors['maxlength']">password maxlength should be
+                    {{registerForm.controls.password.errors['maxlength'].requiredLength}} </p>
+
+            </ng-template>
+    <label>age </label>
+    <input type="text" class="form-control mb-3" formControlName="age">
+<!-- [disabled]="!registerForm.valid" -->
+    <button class="btn-lg btn-info  float-right" >Submit</button>
+    </form>
+
+</section>

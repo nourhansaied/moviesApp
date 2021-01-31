@@ -1,0 +1,16 @@
+<p>display-mesage works!</p>
+
+
+<h2>this message from parent : {{message}}</h2>
+
+
+
+<div>
+    <input type="text" [(ngModel)]="updatedMessage" class="form-control">
+    <ng-content>
+    
+    </ng-content>
+    <button class="btn btn-primary" (click)="update()">Update</button>
+
+  
+</div>

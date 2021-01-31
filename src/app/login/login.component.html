@@ -1,0 +1,31 @@
+<section class="login py-5">
+
+    <h3>Login Form</h3>
+
+    <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)">
+        <label>Email </label>
+        <input type="email" class="form-control mb-3" formControlName="email">
+
+        <label>Password </label>
+        <input type="password" class="form-control mb-3" formControlName="password">
+        <ng-template [ngIf]="loginForm.controls.password.touched && loginForm.controls.password.errors">
+            <p class="text-danger" *ngIf="loginForm.controls.password.errors['required']">password is required</p>
+            <p class="text-danger" *ngIf="loginForm.controls.password.errors['pattern']">password should start with
+            </p>
+
+            <p class="text-danger" *ngIf="loginForm.controls.password.errors['minlength']">password minLength should
+                be {{loginForm.controls.password.errors['minlength'].requiredLength}} </p>
+            <p class="text-danger" *ngIf="loginForm.controls.password.errors['maxlength']">password maxlength should
+                be
+                {{loginForm.controls.password.errors['maxlength'].requiredLength}} </p>
+
+        </ng-template>
+        <ng-template [ngIf]="passwordError">
+           <span class="text-danger">{{passwordError}}</span>
+        </ng-template>
+        <!-- [disabled]="!loginForm.valid" -->
+        <p class="text-white">Don't have account ? <a  class="text-white" routerLink="/register">Sign up</a> </p>
+        <button class="btn-lg btn-info  float-right">Submit</button>
+    </form>
+
+</section>

@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
+:root {
+    --bgColor : #131722;
+    --lightBgColor: #24baef;
+    --bgTransparent: rgba(36,186,239,.6);
+    --fontColor: #fff;
+    --borderColor: #a8a8a83d;
+    --borderHeight: 2px;
+    --secondFontColor: #949cb0;
+}
+
+body{
+    background-color: var(--bgColor);
+    color: var(--fontColor);
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+.custom-border {
+    height: var( --borderHeight);
+    background-color: var(--borderColor);
+    width: 50%;
+}
+
+.floating-input-text {
+    position: relative;
+    display: inline-block;
+}
+.floating-input-text span {
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    background: #fff;
+    transition: .2s;
+    color: #9593bd;
+    font-size: 18px;
+}
+
+.floating-input-text input:focus + span, .floating-input-text input:not(:placeholder-shown) + span[_ngcontent-sxx-c22], .floating-input-text textarea:focus + span, .floating-input-text textarea:not(:placeholder-shown) + span{
+        top: -8px;
+    font-size: 14px;
+    padding: 0 4px
+}
